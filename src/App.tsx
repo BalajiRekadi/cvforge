@@ -1,34 +1,31 @@
-import { AppShell, Burger, Group, Skeleton } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-import { IconFileCv } from "@tabler/icons-react";
+import { createTheme } from "@mantine/core";
+import { MantineProvider } from "@mantine/core";
 
 import "./App.css";
+import SideMenu from "./components/side-menu/SideMenu";
+import { customTheme } from "./constants";
+import MiddlePanel from "./components/middle-panel/MiddlePanel";
+import LeftPanel from "./components/left-panel/LeftPanel";
+import RightPanel from "./components/right-panel/RightPanel";
+import { IconFileCv } from "@tabler/icons-react";
 
 function App() {
-  const [opened, { toggle }] = useDisclosure();
-
+  const theme = createTheme(customTheme);
   return (
-    <AppShell
-      header={{ height: 60 }}
-      navbar={{ width: 300, breakpoint: "sm", collapsed: { mobile: !opened } }}
-      padding="md"
-    >
-      <AppShell.Header>
-        <Group h="100%" px="md">
-          <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
+    <MantineProvider theme={theme} forceColorScheme={"dark"}>
+      <div className="app">
+        <header className="app-header">
           <IconFileCv />
-        </Group>
-      </AppShell.Header>
-      <AppShell.Navbar p="md">
-        Navbar
-        {Array(15)
-          .fill(0)
-          .map((_, index) => (
-            <Skeleton key={index} h={28} mt="sm" animate={false} />
-          ))}
-      </AppShell.Navbar>
-      <AppShell.Main>Main</AppShell.Main>
-    </AppShell>
+          <h3>CVFORGE</h3>
+        </header>
+        <div className="app-content">
+          <SideMenu />
+          <LeftPanel />
+          <MiddlePanel />
+          <RightPanel />
+        </div>
+      </div>
+    </MantineProvider>
   );
 }
 
