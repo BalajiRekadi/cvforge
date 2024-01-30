@@ -1,0 +1,6 @@
+.preview {
+  background-color: antiquewhite;
+  height: 775.5px;
+  width: 550px;
+  transition: transform 0.2s ease-out;
+}
