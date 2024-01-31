@@ -1,21 +1,12 @@
+import { forwardRef } from "react";
 import "./preview.css";
 
-interface PreviewProps {
-  scale: number;
-}
-const Preview = (props: PreviewProps) => {
-  const { scale } = props;
-  console.log(scale);
+const Preview = forwardRef((props: any, ref: any) => {
   return (
-    <div
-      className="preview"
-      style={{
-        transform: `scale(${scale})`,
-      }}
-    >
+    <div ref={ref} className="preview">
       Preview
     </div>
   );
-};
+});
 
 export default Preview;

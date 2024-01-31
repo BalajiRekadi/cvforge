@@ -1,29 +1,30 @@
-import { useState } from "react";
+import { useEffect, useRef } from "react";
 import "./middle-panel.css";
 import Preview from "./preview/Preview";
+import { onWheelHanlder } from "./handlers";
 
 const MiddlePanel = () => {
-  const [scale, setScale] = useState<number>(1);
+  const ref: any = useRef();
+  const panelRef: any = useRef();
 
-  const onScrollHandler = (event: WheelEvent) => {
-    // TODO: Component renderes for every wheel event
-    // Also preview stutters on fast wheel scroll
-    setScale((prev) => {
-      const scaleMultiplier = 0.001;
-      const newScale = Number(prev + event.deltaY * scaleMultiplier);
-      if (newScale > 0.5 && newScale < 1.2) {
-        return newScale;
+  useEffect(() => {
+    const panelElement = panelRef.current;
+    if (panelElement && ref.current) {
+      const scale: { value: number } = { value: 1 };
+      panelElement.addEventListener("wheel", (event) =>
+        onWheelHanlder(event, ref.current, scale)
+      );
+    }
+    return () => {
+      if (panelElement) {
+        panelElement.removeEventListener("wheel", onWheelHanlder);
       }
-      return prev;
-    });
-  };
+    };
+  }, []);
 
   return (
-    <div
-      className="middle-panel"
-      onWheel={(event: any) => onScrollHandler(event)}
-    >
-      <Preview scale={scale} />
+    <div className="middle-panel" ref={panelRef}>
+      <Preview ref={ref} />
     </div>
   );
 };
