@@ -11,6 +11,7 @@
   font-weight: bold;
   position: sticky;
   z-index: 1;
+  margin-left: 3rem;
 }
 
 .app-content {
@@ -22,4 +23,9 @@
 .app-header svg {
   height: 100%;
   margin: 0 1rem;
+}
+
+.mantine-Title-root {
+  line-height: 64px !important;
+  height: 64px;
 }

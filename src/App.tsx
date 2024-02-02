@@ -1,4 +1,4 @@
-import { createTheme } from "@mantine/core";
+import { Title, createTheme } from "@mantine/core";
 import { MantineProvider } from "@mantine/core";
 
 import "./App.css";
@@ -7,7 +7,7 @@ import { customTheme } from "./constants";
 import MiddlePanel from "./components/middle-panel/MiddlePanel";
 import LeftPanel from "./components/left-panel/LeftPanel";
 import RightPanel from "./components/right-panel/RightPanel";
-import { IconFileCv } from "@tabler/icons-react";
+import { IconFileSmile } from "@tabler/icons-react";
 
 function App() {
   const theme = createTheme(customTheme);
@@ -15,14 +15,16 @@ function App() {
     <MantineProvider theme={theme} forceColorScheme={"dark"}>
       <div className="app">
         <header className="app-header">
-          <IconFileCv />
-          <h3>CVFORGE</h3>
+          <IconFileSmile color="yellow" />
+          <Title order={3} c="yellow">
+            CVFORGE
+          </Title>
         </header>
         <div className="app-content">
-          <SideMenu />
           <LeftPanel />
           <MiddlePanel />
           <RightPanel />
+          <SideMenu />
         </div>
       </div>
     </MantineProvider>
