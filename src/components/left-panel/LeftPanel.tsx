@@ -1,5 +1,5 @@
 import { Flex } from "@mantine/core";
-import { CVCard } from "../../shared/components";
+import { ActionCard, CVCard } from "../../shared/components";
 import "./left-panel.css";
 
 const LeftPanel = () => {
@@ -13,6 +13,7 @@ const LeftPanel = () => {
         direction="row"
         wrap="wrap"
       >
+        <ActionCard />
         <CVCard />
         <CVCard />
         <CVCard />

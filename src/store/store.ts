@@ -1,11 +1,17 @@
 // store.js
 import { configureStore } from "@reduxjs/toolkit";
-import resumeReducer from "./reducers/resume";
+import resumeReducer, { ResumeState } from "./reducers/resume";
 
-const store = configureStore({
+interface AppState {
+  resume: ResumeState;
+}
+
+const store = configureStore<AppState>({
   reducer: {
     resume: resumeReducer,
   },
 });
 
 export default store;
+
+export type { AppState };
