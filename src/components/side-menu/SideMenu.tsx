@@ -10,7 +10,7 @@ const SideMenu = () => {
         <ActionIcon
           size="lg"
           onClick={(event) => event.preventDefault()}
-          variant="outline"
+          variant="light"
         >
           <IconFlame />
         </ActionIcon>
@@ -20,7 +20,7 @@ const SideMenu = () => {
           size="lg"
           onClick={(event) => event.preventDefault()}
           loading={true}
-          variant="outline"
+          variant="light"
         >
           <IconHeart />
         </ActionIcon>
@@ -30,7 +30,7 @@ const SideMenu = () => {
           size="lg"
           onClick={(event) => event.preventDefault()}
           loading={false}
-          variant="outline"
+          variant="light"
         >
           <IconHeart />
         </ActionIcon>

@@ -8,25 +8,29 @@ import MiddlePanel from "./components/middle-panel/MiddlePanel";
 import LeftPanel from "./components/left-panel/LeftPanel";
 import RightPanel from "./components/right-panel/RightPanel";
 import { IconFileSmile } from "@tabler/icons-react";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 function App() {
   const theme = createTheme(customTheme);
   return (
     <MantineProvider theme={theme} forceColorScheme={"dark"}>
-      <div className="app">
-        <header className="app-header">
-          <IconFileSmile color="yellow" />
-          <Title order={3} c="yellow">
-            CVFORGE
-          </Title>
-        </header>
-        <div className="app-content">
-          <LeftPanel />
-          <MiddlePanel />
-          <RightPanel />
-          <SideMenu />
+      <Provider store={store}>
+        <div className="app">
+          <header className="app-header">
+            <IconFileSmile color="yellow" />
+            <Title order={3} c="yellow">
+              CVFORGE
+            </Title>
+          </header>
+          <div className="app-content">
+            <LeftPanel />
+            <MiddlePanel />
+            <RightPanel />
+            <SideMenu />
+          </div>
         </div>
-      </div>
+      </Provider>
     </MantineProvider>
   );
 }
