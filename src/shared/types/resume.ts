@@ -13,6 +13,18 @@ interface DefaultFormBlock {
 interface Resume {
   id: string;
   defaultFormBlock: DefaultFormBlock;
+  formBlocks: FormBlocks;
 }
 
-export type { Resume, DefaultFormBlock };
+interface FormBlock {
+  id: string;
+  title: string;
+  subTitle: string;
+  summary: string;
+}
+
+interface FormBlocks {
+  [id: string]: FormBlock;
+}
+
+export type { Resume, DefaultFormBlock, FormBlock, FormBlocks };

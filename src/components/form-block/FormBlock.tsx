@@ -1,35 +1,32 @@
 import { TextInput } from "@mantine/core";
-import { ChangeEventHandler, useState } from "react";
+import { ChangeEventHandler } from "react";
 import "./form-block.css";
+import { FormBlock } from "../../shared/types";
 
-// interface FormBlockProps {
-//   id: string;
-//   title: string;
-//   subTitle: string;
-//   summary: string;
-// }
+interface FormBlockProps {
+  formData: FormBlock;
+}
 
-const FormBlock = () => {
-  const [title, setTilte] = useState("");
-
+const FormBlock = ({ formData }: FormBlockProps) => {
   const titleHandler = (event: ChangeEventHandler<HTMLInputElement>): void => {
     console.log(event);
   };
+
   return (
     <div className="form-block">
       <TextInput
         placeholder="Title"
-        value={title}
+        value={formData.title}
         onChange={() => titleHandler}
       />
       <TextInput
         placeholder="subTitle"
-        value={title}
+        value={formData.subTitle}
         onChange={() => titleHandler}
       />
       <TextInput
         placeholder="summary"
-        value={title}
+        value={formData.summary}
         onChange={() => titleHandler}
       />
     </div>

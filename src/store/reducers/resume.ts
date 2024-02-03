@@ -21,20 +21,20 @@ const initialState: ResumeState = {
         phone: "+91 9550111826",
         about: "Neno peddha thopu",
       },
-      // formBlocks: [
-      //   {
-      //     id: "formblock001",
-      //     title: "Education",
-      //     subTitle: "MNR High School",
-      //     summary: "2013",
-      //   },
-      //   {
-      //     id: "formblock002",
-      //     title: "Experience",
-      //     subTitle: "M3BI, A zensar company",
-      //     summary: "2021 - present",
-      //   },
-      // ],
+      formBlocks: {
+        formblock001: {
+          id: "formblock001",
+          title: "Education",
+          subTitle: "MNR High School",
+          summary: "2013",
+        },
+        formblock002: {
+          id: "formblock002",
+          title: "Experience",
+          subTitle: "M3BI, A zensar company",
+          summary: "2021 - present",
+        },
+      },
     },
   ],
   selectedResumeId: "001",
