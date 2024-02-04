@@ -1,6 +1,8 @@
 .preview {
-  background-color: antiquewhite;
+  background-color: whitesmoke;
   height: 775.5px;
   width: 550px;
   transition: transform 0.3s ease-out;
+  color: darkslategrey;
+  padding: 1rem;
 }
