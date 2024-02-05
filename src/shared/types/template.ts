@@ -1,6 +1,8 @@
 interface Template {
-  name: any;
+  nameblock: any;
+  designation: any;
   details: any;
+  aboutTitle: any;
   about: any;
 }
 

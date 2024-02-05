@@ -1,7 +1,9 @@
-.mantine-Card-section {
-  height: -webkit-fill-available;
-}
+.action-card {
+  .mantine-Card-section {
+    height: -webkit-fill-available;
+  }
 
-.mantine-Button-root {
-  height: 100% !important;
+  .mantine-Button-root {
+    height: 100% !important;
+  }
 }

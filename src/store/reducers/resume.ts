@@ -1,5 +1,14 @@
 import { Reducer, createSlice } from "@reduxjs/toolkit";
 import { Resume } from "../../shared/types";
+import {
+  _updateAbout,
+  _updateDesignation,
+  _updateGithub,
+  _updateLinkedin,
+  _updateMail,
+  _updateName,
+  _updatePhone,
+} from "../actions/resume";
 
 interface ResumeState {
   list: Resume[];
@@ -19,7 +28,8 @@ const initialState: ResumeState = {
         github: "github.com/balajirekadi",
         mail: "balaji.rekadi@gmail.com",
         phone: "+91 9550111826",
-        about: "Neno peddha thopu",
+        about:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       },
       formBlocks: {
         formblock001: {
@@ -44,19 +54,28 @@ const resumeSlice = createSlice({
   name: "resume",
   initialState,
   reducers: {
-    addReducer: (state, action) => {
-      state.list = state.list.concat(action.payload);
-    },
-    deleteReducer: (state, action) => {
-      state.list = state.list.filter((item) => item.id !== action.payload);
-    },
+    updateName: _updateName,
+    updateDesignation: _updateDesignation,
+    updatePhone: _updatePhone,
+    updateMail: _updateMail,
+    updateLinkedin: _updateLinkedin,
+    updateGithub: _updateGithub,
+    updateAbout: _updateAbout,
   },
 });
 
 const resumeReducer: Reducer<ResumeState> = resumeSlice.reducer;
 
 // Action creators are generated for each case reducer function
-export const { addReducer, deleteReducer } = resumeSlice.actions;
+export const {
+  updateName,
+  updateDesignation,
+  updatePhone,
+  updateMail,
+  updateLinkedin,
+  updateGithub,
+  updateAbout,
+} = resumeSlice.actions;
 
 export default resumeReducer;
 

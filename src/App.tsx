@@ -2,7 +2,6 @@ import { Title, createTheme } from "@mantine/core";
 import { MantineProvider } from "@mantine/core";
 
 import "./App.css";
-import SideMenu from "./components/side-menu/SideMenu";
 import { customTheme } from "./constants";
 import MiddlePanel from "./components/middle-panel/MiddlePanel";
 import LeftPanel from "./components/left-panel/LeftPanel";
@@ -27,7 +26,6 @@ function App() {
             <LeftPanel />
             <MiddlePanel />
             <RightPanel />
-            <SideMenu />
           </div>
         </div>
       </Provider>

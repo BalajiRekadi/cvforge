@@ -1,6 +1,6 @@
 import { TextInput } from "@mantine/core";
 import { ChangeEventHandler } from "react";
-import "./form-block.css";
+import classes from "./form-block.module.css";
 import { FormBlock } from "../../shared/types";
 
 interface FormBlockProps {
@@ -13,7 +13,7 @@ const FormBlock = ({ formData }: FormBlockProps) => {
   };
 
   return (
-    <div className="form-block">
+    <div className={classes["form-block"]}>
       <TextInput
         placeholder="Title"
         value={formData.title}

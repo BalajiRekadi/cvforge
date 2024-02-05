@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import "./preview.css";
+import classes from "./preview.module.css";
 import { useSelector } from "react-redux";
 import { getSelectedResume } from "../../../store/selectors/resume";
 import { DefaultFormBlock } from "../../../shared/types";
@@ -13,10 +13,12 @@ const Preview = forwardRef((props: any, ref: any) => {
   const selectedTemplate = templates.defaultTemplate;
 
   return (
-    <div ref={ref} className="preview">
-      <div style={selectedTemplate.name}>
+    <div ref={ref} className={classes["preview"]}>
+      <div style={selectedTemplate.nameblock}>
         <div>{defaultFormBlock?.fullName}</div>
-        <div>{defaultFormBlock?.designation}</div>
+        <div style={selectedTemplate.designation}>
+          {defaultFormBlock?.designation}
+        </div>
       </div>
       <div style={selectedTemplate.details}>
         <div>{defaultFormBlock?.phone}</div>
@@ -24,6 +26,7 @@ const Preview = forwardRef((props: any, ref: any) => {
         <div>{defaultFormBlock?.github}</div>
         <div>{defaultFormBlock?.linkedIn}</div>
       </div>
+      <div style={selectedTemplate.aboutTitle}>Summary</div>
       <div style={selectedTemplate.about}>{defaultFormBlock?.about}</div>
     </div>
   );
