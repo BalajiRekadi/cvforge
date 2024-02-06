@@ -34,15 +34,35 @@ const initialState: ResumeState = {
       formBlocks: {
         formblock001: {
           id: "formblock001",
-          title: "Education",
-          subTitle: "MNR High School",
-          summary: "2013",
+          name: "Education",
+          entries: [
+            {
+              title: "MNR High School",
+              subTitle: "2011",
+              summary: "89%",
+            },
+            {
+              title: "Gayatri Jr College",
+              subTitle: "2011 - 2013",
+              summary: "94%",
+            },
+          ],
         },
         formblock002: {
           id: "formblock002",
-          title: "Experience",
-          subTitle: "M3BI, A zensar company",
-          summary: "2021 - present",
+          name: "Experience",
+          entries: [
+            {
+              title: "M3BI, A zensar company",
+              subTitle: "Senior Software Developer",
+              summary: "2021 - present",
+            },
+            {
+              title: "Hexagon Capability Center India",
+              subTitle: "Software Developer",
+              summary: "2017 - 2021",
+            },
+          ],
         },
       },
     },

@@ -1,34 +1,21 @@
-import { TextInput } from "@mantine/core";
-import { ChangeEventHandler } from "react";
 import classes from "./form-block.module.css";
 import { FormBlock } from "../../shared/types";
+import FormBlockEntry from "./form-block-entry/FormBlockEntry";
+import FormBlockOptions from "./form-block-options/FormBlockOptions";
 
 interface FormBlockProps {
   formData: FormBlock;
 }
 
 const FormBlock = ({ formData }: FormBlockProps) => {
-  const titleHandler = (event: ChangeEventHandler<HTMLInputElement>): void => {
-    console.log(event);
-  };
-
   return (
     <div className={classes["form-block"]}>
-      <TextInput
-        placeholder="Title"
-        value={formData.title}
-        onChange={() => titleHandler}
-      />
-      <TextInput
-        placeholder="subTitle"
-        value={formData.subTitle}
-        onChange={() => titleHandler}
-      />
-      <TextInput
-        placeholder="summary"
-        value={formData.summary}
-        onChange={() => titleHandler}
-      />
+      <FormBlockOptions />
+      <div className={classes["form-block-entries"]}>
+        {formData.entries.map((entry) => (
+          <FormBlockEntry entryData={entry} />
+        ))}
+      </div>
     </div>
   );
 };

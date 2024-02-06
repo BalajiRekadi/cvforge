@@ -1,0 +1,10 @@
+.form-block-entries {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &__delete {
+    align-self: end;
+  }
+}

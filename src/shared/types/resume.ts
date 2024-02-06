@@ -18,6 +18,11 @@ interface Resume {
 
 interface FormBlock {
   id: string;
+  name: string;
+  entries: FormBlockEntry[];
+}
+
+interface FormBlockEntry {
   title: string;
   subTitle: string;
   summary: string;
@@ -27,4 +32,4 @@ interface FormBlocks {
   [id: string]: FormBlock;
 }
 
-export type { Resume, DefaultFormBlock, FormBlock, FormBlocks };
+export type { Resume, DefaultFormBlock, FormBlock, FormBlocks, FormBlockEntry };
