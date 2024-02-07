@@ -1,14 +1,6 @@
 import { Reducer, createSlice } from "@reduxjs/toolkit";
 import { Resume } from "../../shared/types";
-import {
-  _updateAbout,
-  _updateDesignation,
-  _updateGithub,
-  _updateLinkedin,
-  _updateMail,
-  _updateName,
-  _updatePhone,
-} from "../actions/resume";
+import { _updateDefaultBlockField, _updateBlockField } from "../actions/resume";
 
 interface ResumeState {
   list: Resume[];
@@ -37,14 +29,18 @@ const initialState: ResumeState = {
           name: "Education",
           entries: [
             {
+              id: "entry001",
               title: "MNR High School",
               subTitle: "2011",
-              summary: "89%",
+              subTitle2: "89%",
+              summary: "Hello world",
             },
             {
+              id: "entry002",
               title: "Gayatri Jr College",
               subTitle: "2011 - 2013",
-              summary: "94%",
+              subTitle2: "2011 - 2013",
+              summary: "",
             },
           ],
         },
@@ -53,13 +49,17 @@ const initialState: ResumeState = {
           name: "Experience",
           entries: [
             {
+              id: "entry003",
               title: "M3BI, A zensar company",
               subTitle: "Senior Software Developer",
+              subTitle2: "Senior Software Developer",
               summary: "2021 - present",
             },
             {
+              id: "entry004",
               title: "Hexagon Capability Center India",
               subTitle: "Software Developer",
+              subTitle2: "Software Developer",
               summary: "2017 - 2021",
             },
           ],
@@ -74,28 +74,16 @@ const resumeSlice = createSlice({
   name: "resume",
   initialState,
   reducers: {
-    updateName: _updateName,
-    updateDesignation: _updateDesignation,
-    updatePhone: _updatePhone,
-    updateMail: _updateMail,
-    updateLinkedin: _updateLinkedin,
-    updateGithub: _updateGithub,
-    updateAbout: _updateAbout,
+    updateDefaultBlockField: _updateDefaultBlockField,
+    updateBlockField: _updateBlockField,
   },
 });
 
 const resumeReducer: Reducer<ResumeState> = resumeSlice.reducer;
 
 // Action creators are generated for each case reducer function
-export const {
-  updateName,
-  updateDesignation,
-  updatePhone,
-  updateMail,
-  updateLinkedin,
-  updateGithub,
-  updateAbout,
-} = resumeSlice.actions;
+export const { updateDefaultBlockField, updateBlockField } =
+  resumeSlice.actions;
 
 export default resumeReducer;
 

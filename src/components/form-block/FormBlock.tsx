@@ -12,8 +12,13 @@ const FormBlock = ({ formData }: FormBlockProps) => {
     <div className={classes["form-block"]}>
       <FormBlockOptions />
       <div className={classes["form-block-entries"]}>
-        {formData.entries.map((entry) => (
-          <FormBlockEntry entryData={entry} />
+        {formData.entries.map((entry, index) => (
+          <FormBlockEntry
+            entryData={entry}
+            index={index}
+            key={entry.id}
+            sectionId={formData.id}
+          />
         ))}
       </div>
     </div>

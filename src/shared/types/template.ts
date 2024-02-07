@@ -4,6 +4,7 @@ interface Template {
   details: any;
   aboutTitle: any;
   about: any;
+  formBlocks: any;
 }
 
 export default Template;

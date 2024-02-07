@@ -1,70 +1,28 @@
 import { Resume } from "../../shared/types";
 
-const _updateName = (state, action) => {
+// Identity block actions
+const _updateDefaultBlockField = (state, action) => {
   const resume: Resume = state.list.find(
     (item) => item.id === state.selectedResumeId
   );
   if (resume) {
-    resume.defaultFormBlock.fullName = action.payload;
+    resume.defaultFormBlock[action.payload.field] = action.payload.value;
   }
 };
 
-const _updateDesignation = (state, action) => {
+// Section block actions
+const _updateBlockField = (state, action) => {
   const resume: Resume = state.list.find(
     (item) => item.id === state.selectedResumeId
   );
   if (resume) {
-    resume.defaultFormBlock.designation = action.payload;
+    const entry = resume.formBlocks[action.payload.sectionId].entries.find(
+      (item) => item.id === action.payload.id
+    );
+    if (entry) {
+      entry[action.payload.field] = action.payload.value;
+    }
   }
 };
 
-const _updatePhone = (state, action) => {
-  const resume: Resume = state.list.find(
-    (item) => item.id === state.selectedResumeId
-  );
-  if (resume) {
-    resume.defaultFormBlock.phone = action.payload;
-  }
-};
-const _updateMail = (state, action) => {
-  const resume: Resume = state.list.find(
-    (item) => item.id === state.selectedResumeId
-  );
-  if (resume) {
-    resume.defaultFormBlock.mail = action.payload;
-  }
-};
-const _updateLinkedin = (state, action) => {
-  const resume: Resume = state.list.find(
-    (item) => item.id === state.selectedResumeId
-  );
-  if (resume) {
-    resume.defaultFormBlock.linkedIn = action.payload;
-  }
-};
-const _updateGithub = (state, action) => {
-  const resume: Resume = state.list.find(
-    (item) => item.id === state.selectedResumeId
-  );
-  if (resume) {
-    resume.defaultFormBlock.github = action.payload;
-  }
-};
-const _updateAbout = (state, action) => {
-  const resume: Resume = state.list.find(
-    (item) => item.id === state.selectedResumeId
-  );
-  if (resume) {
-    resume.defaultFormBlock.about = action.payload;
-  }
-};
-
-export {
-  _updateName,
-  _updateDesignation,
-  _updatePhone,
-  _updateMail,
-  _updateLinkedin,
-  _updateGithub,
-  _updateAbout,
-};
+export { _updateDefaultBlockField, _updateBlockField };

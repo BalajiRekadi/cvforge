@@ -2,15 +2,7 @@ import { Accordion, TextInput, Textarea } from "@mantine/core";
 import classes from "./default-form-block.module.css";
 import { DefaultFormBlock } from "../../shared/types";
 import { useDispatch } from "react-redux";
-import {
-  updateAbout,
-  updateDesignation,
-  updateGithub,
-  updateLinkedin,
-  updateMail,
-  updateName,
-  updatePhone,
-} from "../../store/reducers/resume";
+import { updateDefaultBlockField } from "../../store/reducers/resume";
 
 interface DefaultFormBlockProps {
   formData: DefaultFormBlock | undefined;
@@ -19,32 +11,10 @@ interface DefaultFormBlockProps {
 const DefaultFormBlock = ({ formData }: DefaultFormBlockProps) => {
   const dispatch = useDispatch();
 
-  const onChangeHandler = (event, type: string) => {
-    switch (type) {
-      case "name":
-        dispatch(updateName(event.target.value));
-        break;
-      case "designation":
-        dispatch(updateDesignation(event.target.value));
-        break;
-      case "phone":
-        dispatch(updatePhone(event.target.value));
-        break;
-      case "mail":
-        dispatch(updateMail(event.target.value));
-        break;
-      case "linkedin":
-        dispatch(updateLinkedin(event.target.value));
-        break;
-      case "github":
-        dispatch(updateGithub(event.target.value));
-        break;
-      case "about":
-        dispatch(updateAbout(event.target.value));
-        break;
-      default:
-        break;
-    }
+  const onChangeHandler = (event, field: string) => {
+    dispatch(
+      updateDefaultBlockField({ value: event.target.value, field } as any)
+    );
   };
 
   return (
@@ -55,7 +25,7 @@ const DefaultFormBlock = ({ formData }: DefaultFormBlockProps) => {
           <TextInput
             placeholder="FullName"
             value={formData?.fullName}
-            onChange={(event) => onChangeHandler(event, "name")}
+            onChange={(event) => onChangeHandler(event, "fullName")}
           />
           <TextInput
             placeholder="Designation"
@@ -78,7 +48,7 @@ const DefaultFormBlock = ({ formData }: DefaultFormBlockProps) => {
             <TextInput
               placeholder="Linkedin"
               value={formData?.linkedIn}
-              onChange={(event) => onChangeHandler(event, "linkedin")}
+              onChange={(event) => onChangeHandler(event, "linkedIn")}
             />
             <TextInput
               placeholder="Github"

@@ -23,8 +23,10 @@ interface FormBlock {
 }
 
 interface FormBlockEntry {
+  id: string;
   title: string;
   subTitle: string;
+  subTitle2: string;
   summary: string;
 }
 

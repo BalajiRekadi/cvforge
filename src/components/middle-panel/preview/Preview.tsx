@@ -2,13 +2,14 @@ import { forwardRef } from "react";
 import classes from "./preview.module.css";
 import { useSelector } from "react-redux";
 import { getSelectedResume } from "../../../store/selectors/resume";
-import { DefaultFormBlock } from "../../../shared/types";
+import { DefaultFormBlock, FormBlocks } from "../../../shared/types";
 import templates from "../../../constants/templates";
 
 const Preview = forwardRef((props: any, ref: any) => {
   const resume = useSelector(getSelectedResume);
-  const defaultFormBlock: DefaultFormBlock | undefined =
-    resume?.defaultFormBlock;
+  const defaultFormBlock: DefaultFormBlock = resume.defaultFormBlock;
+  const formBlocks: FormBlocks = resume.formBlocks;
+  const formBlocksKeys = Object.keys(formBlocks);
 
   const selectedTemplate = templates.defaultTemplate;
 
@@ -28,6 +29,19 @@ const Preview = forwardRef((props: any, ref: any) => {
       </div>
       <div style={selectedTemplate.aboutTitle}>Summary</div>
       <div style={selectedTemplate.about}>{defaultFormBlock?.about}</div>
+
+      {formBlocksKeys.map((key) => (
+        <div style={selectedTemplate.formBlocks}>
+          <div style={selectedTemplate.aboutTitle}>{formBlocks[key].name}</div>
+          {formBlocks[key].entries.map((entry) => (
+            <>
+              <div style={selectedTemplate.about}>{entry.title}</div>
+              <div style={selectedTemplate.about}>{entry.subTitle}</div>
+              <div style={selectedTemplate.about}>{entry.summary}</div>
+            </>
+          ))}
+        </div>
+      ))}
     </div>
   );
 });

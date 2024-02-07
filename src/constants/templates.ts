@@ -24,6 +24,7 @@ const defaultTemplate: Template = {
   about: {
     fontSize: "12px",
   },
+  formBlocks: {},
 };
 
 export default { defaultTemplate };
