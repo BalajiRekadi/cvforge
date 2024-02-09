@@ -1,6 +1,5 @@
 import { Title, createTheme } from "@mantine/core";
 import { MantineProvider } from "@mantine/core";
-
 import "./App.css";
 import { customTheme } from "./constants";
 import MiddlePanel from "./components/middle-panel/MiddlePanel";
@@ -24,7 +23,7 @@ function App() {
           </header>
           <div className="app-content">
             <LeftPanel />
-            <MiddlePanel />
+              <MiddlePanel />
             <RightPanel />
           </div>
         </div>
