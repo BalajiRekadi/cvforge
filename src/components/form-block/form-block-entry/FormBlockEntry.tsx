@@ -35,11 +35,11 @@ const FormBlockEntry = ({
         <div>Entry {index + 1}</div>
         <ActionIcon
           variant="default"
-          size="lg"
+          size="md"
           aria-label="Gallery"
           className={classes["form-block-entries__delete"]}
         >
-          <IconX style={{ width: rem(20) }} stroke={1.5} />
+          <IconX style={{ width: rem(15) }} stroke={1.5} />
         </ActionIcon>
       </div>
       <TextInput

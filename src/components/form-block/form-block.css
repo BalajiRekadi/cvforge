@@ -8,3 +8,9 @@
   max-height: 25rem;
   overflow: auto;
 }
+
+.mantine-Accordion-label {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 1rem;
+}

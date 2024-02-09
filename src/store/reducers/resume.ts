@@ -1,6 +1,10 @@
 import { Reducer, createSlice } from "@reduxjs/toolkit";
 import { Resume } from "../../shared/types";
-import { _updateDefaultBlockField, _updateBlockField } from "../actions/resume";
+import {
+  _updateDefaultBlockField,
+  _updateBlockField,
+  _addNewSection,
+} from "../actions/resume";
 
 interface ResumeState {
   list: Resume[];
@@ -76,13 +80,14 @@ const resumeSlice = createSlice({
   reducers: {
     updateDefaultBlockField: _updateDefaultBlockField,
     updateBlockField: _updateBlockField,
+    addNewSection: _addNewSection,
   },
 });
 
 const resumeReducer: Reducer<ResumeState> = resumeSlice.reducer;
 
 // Action creators are generated for each case reducer function
-export const { updateDefaultBlockField, updateBlockField } =
+export const { updateDefaultBlockField, updateBlockField, addNewSection } =
   resumeSlice.actions;
 
 export default resumeReducer;

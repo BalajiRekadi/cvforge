@@ -1,6 +1,5 @@
 import { Resume } from "../../shared/types";
 
-// Identity block actions
 const _updateDefaultBlockField = (state, action) => {
   const resume: Resume = state.list.find(
     (item) => item.id === state.selectedResumeId
@@ -10,7 +9,6 @@ const _updateDefaultBlockField = (state, action) => {
   }
 };
 
-// Section block actions
 const _updateBlockField = (state, action) => {
   const resume: Resume = state.list.find(
     (item) => item.id === state.selectedResumeId
@@ -25,4 +23,13 @@ const _updateBlockField = (state, action) => {
   }
 };
 
-export { _updateDefaultBlockField, _updateBlockField };
+const _addNewSection = (state, action) => {
+  const resume: Resume = state.list.find(
+    (item) => item.id === state.selectedResumeId
+  );
+  if (resume) {
+    resume.formBlocks[action.payload.id] = action.payload;
+  }
+};
+
+export { _updateDefaultBlockField, _updateBlockField, _addNewSection };

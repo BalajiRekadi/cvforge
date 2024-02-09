@@ -33,13 +33,16 @@ const Preview = forwardRef((props: any, ref: any) => {
       {formBlocksKeys.map((key) => (
         <div style={selectedTemplate.formBlocks}>
           <div style={selectedTemplate.aboutTitle}>{formBlocks[key].name}</div>
-          {formBlocks[key].entries.map((entry) => (
-            <>
-              <div style={selectedTemplate.about}>{entry.title}</div>
-              <div style={selectedTemplate.about}>{entry.subTitle}</div>
-              <div style={selectedTemplate.about}>{entry.summary}</div>
-            </>
-          ))}
+          <div style={selectedTemplate.entries}>
+            {formBlocks[key].entries.map((entry) => (
+              <div style={selectedTemplate.entry}>
+                <div style={selectedTemplate.about}>{entry.title}</div>
+                <div style={selectedTemplate.about}>{entry.subTitle}</div>
+                <div style={selectedTemplate.about}>{entry.subTitle2}</div>
+                <div style={selectedTemplate.about}>{entry.summary}</div>
+              </div>
+            ))}
+          </div>
         </div>
       ))}
     </div>

@@ -1,6 +1,6 @@
 .left-panel {
   height: 100%;
-  flex-grow: 1.5;
+  flex-grow: 1.2;
   flex-basis: 0;
   overflow: auto;
   background-color: #242424;

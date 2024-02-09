@@ -20,11 +20,21 @@ const defaultTemplate: Template = {
   aboutTitle: {
     fontWeight: "600",
     fontSize: "12px",
+    color: "blueviolet",
   },
   about: {
     fontSize: "12px",
   },
-  formBlocks: {},
+  formBlocks: {
+    marginTop: "10px",
+  },
+  entries: {
+    display: "flex",
+    gap: "1rem",
+  },
+  entry: {
+    marginTop: "8px",
+  },
 };
 
 export default { defaultTemplate };
