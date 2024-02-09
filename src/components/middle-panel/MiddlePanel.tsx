@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import "./middle-panel.css";
 import Preview from "./preview/Preview";
 import { onWheelHanlder } from "./handlers";
+import ToolBar from "./toolbar/ToolBar";
 
 const MiddlePanel = () => {
   const ref: any = useRef();
@@ -25,6 +26,7 @@ const MiddlePanel = () => {
   return (
     <div className="middle-panel" ref={panelRef}>
       <Preview ref={ref} />
+      <ToolBar />
     </div>
   );
 };

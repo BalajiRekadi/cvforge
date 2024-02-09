@@ -1,8 +1,6 @@
 import { Flex } from "@mantine/core";
 import { ActionCard, CVCard } from "../../shared/components";
 import classes from "./left-panel.module.css";
-import { PDFDownloadLink } from "@react-pdf/renderer";
-import MyDocument from "../middle-panel/preview/Document";
 
 const LeftPanel = () => {
   return (
@@ -18,11 +16,6 @@ const LeftPanel = () => {
         <ActionCard />
         <CVCard />
       </Flex>
-      <div className="App">
-        <PDFDownloadLink document={<MyDocument />} fileName="somename.pdf">
-          Download
-        </PDFDownloadLink>
-      </div>
     </div>
   );
 };

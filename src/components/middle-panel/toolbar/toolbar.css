@@ -1,0 +1,8 @@
+.toolbar {
+  position: absolute;
+  bottom: 3rem;
+
+  .mantine-Paper-root {
+    padding: 8px 2rem !important;
+  }
+}
