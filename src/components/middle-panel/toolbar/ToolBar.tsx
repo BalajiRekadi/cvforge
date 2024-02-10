@@ -1,25 +1,30 @@
-import { ActionIcon, Paper, rem } from "@mantine/core";
+import { ActionIcon, rem } from "@mantine/core";
 import { IconFileTypePdf } from "@tabler/icons-react";
 import { IconZoomReset } from "@tabler/icons-react";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import "./toolbar.css";
 import MyDocument from "../document/Document";
+import { useSelector } from "react-redux";
+import { getSelectedResume } from "../../../store/selectors/resume";
 
 const ToolBar = () => {
+  const resume = useSelector(getSelectedResume);
+
   return (
     <div className="toolbar">
-      <Paper shadow="xl" radius="xl" withBorder p="xl">
-        <ActionIcon.Group>
-          <ActionIcon variant="default" size="md" aria-label="Horizontal">
-            <IconZoomReset style={{ width: rem(15) }} stroke={1.5} />
-          </ActionIcon>
-          <PDFDownloadLink document={<MyDocument />} fileName="somename.pdf">
-            <ActionIcon variant="default" size="md" aria-label="Vertical">
-              <IconFileTypePdf style={{ width: rem(15) }} stroke={1.5} />
-            </ActionIcon>
+      <ActionIcon.Group>
+        <ActionIcon variant="default" size="xl" aria-label="Horizontal">
+          <IconZoomReset style={{ width: rem(23) }} stroke={1.5} />
+        </ActionIcon>
+        <ActionIcon variant="default" size="xl" aria-label="Vertical">
+          <PDFDownloadLink
+            document={<MyDocument resume={resume} />}
+            fileName="somename.pdf"
+          >
+            <IconFileTypePdf style={{ width: rem(23) }} stroke={1.5} />
           </PDFDownloadLink>
-        </ActionIcon.Group>
-      </Paper>
+        </ActionIcon>
+      </ActionIcon.Group>
     </div>
   );
 };

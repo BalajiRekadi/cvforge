@@ -11,6 +11,7 @@ import store from "./store/store";
 
 function App() {
   const theme = createTheme(customTheme);
+
   return (
     <MantineProvider theme={theme} forceColorScheme={"dark"}>
       <Provider store={store}>
@@ -23,7 +24,7 @@ function App() {
           </header>
           <div className="app-content">
             <LeftPanel />
-              <MiddlePanel />
+            <MiddlePanel />
             <RightPanel />
           </div>
         </div>

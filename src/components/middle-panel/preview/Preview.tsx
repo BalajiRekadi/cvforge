@@ -14,9 +14,11 @@ const Preview = forwardRef((props: any, ref: any) => {
   const selectedTemplate = templates.defaultTemplate;
 
   return (
-    <div ref={ref} className={classes["preview"]}>
+    <div ref={ref} className={classes["preview"]} style={selectedTemplate.page}>
       <div style={selectedTemplate.nameblock}>
-        <div>{defaultFormBlock?.fullName}</div>
+        <div style={selectedTemplate.fullName}>
+          {defaultFormBlock?.fullName}
+        </div>
         <div style={selectedTemplate.designation}>
           {defaultFormBlock?.designation}
         </div>
@@ -32,14 +34,44 @@ const Preview = forwardRef((props: any, ref: any) => {
 
       {formBlocksKeys.map((key) => (
         <div style={selectedTemplate.formBlocks}>
-          <div style={selectedTemplate.aboutTitle}>{formBlocks[key].name}</div>
+          <div style={selectedTemplate.formBlockTitle}>
+            {formBlocks[key].name}
+          </div>
           <div style={selectedTemplate.entries}>
             {formBlocks[key].entries.map((entry) => (
               <div style={selectedTemplate.entry}>
-                <div style={selectedTemplate.about}>{entry.title}</div>
-                <div style={selectedTemplate.about}>{entry.subTitle}</div>
-                <div style={selectedTemplate.about}>{entry.subTitle2}</div>
-                <div style={selectedTemplate.about}>{entry.summary}</div>
+                <div
+                  style={{
+                    ...selectedTemplate.entryItem,
+                    ...selectedTemplate.entryTitle,
+                  }}
+                >
+                  {entry.title}
+                </div>
+                <div
+                  style={{
+                    ...selectedTemplate.entryItem,
+                    ...selectedTemplate.entrySubTitle,
+                  }}
+                >
+                  {entry.subTitle}
+                </div>
+                <div
+                  style={{
+                    ...selectedTemplate.entryItem,
+                    ...selectedTemplate.entrySubTitle2,
+                  }}
+                >
+                  {entry.subTitle2}
+                </div>
+                <div
+                  style={{
+                    ...selectedTemplate.entryItem,
+                    ...selectedTemplate.summary,
+                  }}
+                >
+                  {entry.summary}
+                </div>
               </div>
             ))}
           </div>
