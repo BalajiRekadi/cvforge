@@ -4,13 +4,12 @@ interface Template {
   fullName: any;
   designation: any;
   details: any;
+  detailsItem: any;
   aboutTitle: any;
   about: any;
   formBlocks: any;
   formBlockTitle: any;
-  entries: any;
   entry: any;
-  entryItem: any;
   entryTitle: any;
   entrySubTitle: any;
   entrySubTitle2: any;

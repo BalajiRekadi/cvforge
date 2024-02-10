@@ -1,4 +1,11 @@
-import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
+import {
+  Page,
+  Text,
+  View,
+  Document,
+  StyleSheet,
+  Font,
+} from "@react-pdf/renderer";
 import templates from "../../../constants/templates";
 import { DefaultFormBlock, FormBlocks } from "../../../shared/types";
 
@@ -6,6 +13,20 @@ const MyDocument = ({ resume }) => {
   const defaultFormBlock: DefaultFormBlock = resume.defaultFormBlock;
   const formBlocks: FormBlocks = resume.formBlocks;
   const formBlocksKeys = Object.keys(formBlocks);
+
+  // TODO: Also change in preview css if this is changed
+  Font.register({
+    family: "Open Sans",
+    fonts: [
+      {
+        src: "https://cdn.jsdelivr.net/npm/open-sans-all@0.1.3/fonts/open-sans-regular.ttf",
+      },
+      {
+        src: "https://cdn.jsdelivr.net/npm/open-sans-all@0.1.3/fonts/open-sans-600.ttf",
+        fontWeight: 600,
+      },
+    ],
+  });
 
   const selectedTemplate = StyleSheet.create({ ...templates.defaultTemplate });
 
@@ -21,35 +42,39 @@ const MyDocument = ({ resume }) => {
           </Text>
         </View>
         <View style={selectedTemplate.details}>
-          <Text>{defaultFormBlock.phone}</Text>
-          <Text>{defaultFormBlock.mail}</Text>
-          <Text>{defaultFormBlock.github}</Text>
-          <Text>{defaultFormBlock.linkedIn}</Text>
+          <Text style={selectedTemplate.detailsItem}>
+            {defaultFormBlock.phone}
+          </Text>
+          <Text style={selectedTemplate.detailsItem}>
+            {defaultFormBlock.mail}
+          </Text>
+          <Text style={selectedTemplate.detailsItem}>
+            {defaultFormBlock.github}
+          </Text>
+          <Text style={selectedTemplate.detailsItem}>
+            {defaultFormBlock.linkedIn}
+          </Text>
         </View>
         <Text style={selectedTemplate.aboutTitle}>Summary</Text>
         <Text style={selectedTemplate.about}>{defaultFormBlock.about}</Text>
 
         {formBlocksKeys.map((key) => (
-          <View style={selectedTemplate.formBlocks}>
-            <Text style={selectedTemplate.aboutTitle}>
+          <View style={selectedTemplate.formBlocks} key={key}>
+            <Text style={selectedTemplate.formBlockTitle}>
               {formBlocks[key].name}
             </Text>
-            <View style={selectedTemplate.entries}>
-              {formBlocks[key].entries.map((entry) => (
-                <View style={selectedTemplate.entry}>
-                  <Text style={selectedTemplate.entryItem}>{entry.title}</Text>
-                  <Text style={selectedTemplate.entryItem}>
-                    {entry.subTitle}
-                  </Text>
-                  <Text style={selectedTemplate.entryItem}>
-                    {entry.subTitle2}
-                  </Text>
-                  <Text style={selectedTemplate.entryItem}>
-                    {entry.summary}
-                  </Text>
-                </View>
-              ))}
-            </View>
+            {formBlocks[key].entries.map((entry) => (
+              <View style={selectedTemplate.entry} key={entry.title}>
+                <Text style={selectedTemplate.entryTitle}>{entry.title}</Text>
+                <Text style={selectedTemplate.entrySubTitle}>
+                  {entry.subTitle}
+                </Text>
+                <Text style={selectedTemplate.entrySubTitle2}>
+                  {entry.subTitle2}
+                </Text>
+                <Text style={selectedTemplate.summary}>{entry.summary}</Text>
+              </View>
+            ))}
           </View>
         ))}
       </Page>
