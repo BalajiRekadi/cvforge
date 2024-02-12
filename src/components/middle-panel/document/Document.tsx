@@ -1,11 +1,4 @@
-import {
-  Page,
-  Text,
-  View,
-  Document,
-  StyleSheet,
-  Font,
-} from "@react-pdf/renderer";
+import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
 import templates from "../../../constants/templates";
 import { DefaultFormBlock, FormBlocks } from "../../../shared/types";
 
@@ -13,20 +6,6 @@ const MyDocument = ({ resume }) => {
   const defaultFormBlock: DefaultFormBlock = resume.defaultFormBlock;
   const formBlocks: FormBlocks = resume.formBlocks;
   const formBlocksKeys = Object.keys(formBlocks);
-
-  // TODO: Also change in preview css if this is changed
-  Font.register({
-    family: "Open Sans",
-    fonts: [
-      {
-        src: "https://cdn.jsdelivr.net/npm/open-sans-all@0.1.3/fonts/open-sans-regular.ttf",
-      },
-      {
-        src: "https://cdn.jsdelivr.net/npm/open-sans-all@0.1.3/fonts/open-sans-600.ttf",
-        fontWeight: 600,
-      },
-    ],
-  });
 
   const selectedTemplate = StyleSheet.create({ ...templates.defaultTemplate });
 
