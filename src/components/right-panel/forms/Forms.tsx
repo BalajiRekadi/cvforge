@@ -8,6 +8,7 @@ import { addNewSection } from "../../../store/reducers/resume";
 import { v4 as uuidv4 } from "uuid";
 import { useDisclosure } from "@mantine/hooks";
 import { useState } from "react";
+import { RADIUS } from "../../../constants";
 
 const Forms = () => {
   // TODO: getSelectedResume runs for every rerender
@@ -46,7 +47,7 @@ const Forms = () => {
 
   return (
     <div className={classes["forms"]}>
-      <Accordion variant="filled" defaultValue="Identity">
+      <Accordion variant="" defaultValue="Identity">
         <DefaultFormBlock formData={resume?.defaultFormBlock} />
         {blockIds.map((id) => (
           <FormBlock formData={blocks[id]} />
@@ -55,6 +56,7 @@ const Forms = () => {
 
       <Modal opened={opened} onClose={close} title="Enter section name">
         <TextInput
+          radius={RADIUS}
           placeholder="Title"
           value={name}
           onChange={onNameChange}

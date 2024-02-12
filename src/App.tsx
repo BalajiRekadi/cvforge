@@ -5,13 +5,13 @@ import { customTheme } from "./constants";
 import MiddlePanel from "./components/middle-panel/MiddlePanel";
 import LeftPanel from "./components/left-panel/LeftPanel";
 import RightPanel from "./components/right-panel/RightPanel";
-import { IconFileSmile } from "@tabler/icons-react";
 import { Provider } from "react-redux";
 import store from "./store/store";
 import { Font } from "@react-pdf/renderer";
+import { IconFile } from "@tabler/icons-react";
 
 function App() {
-  const theme = createTheme(customTheme);
+  const theme = createTheme(customTheme as any);
 
   // TODO: Also change in css file if this is changed
   // TODO: Check how many times app is rendering
@@ -33,7 +33,7 @@ function App() {
       <Provider store={store}>
         <div className="app">
           <header className="app-header">
-            <IconFileSmile color="yellow" />
+            <IconFile color="#FFD43B" />
             <Title order={3} c="yellow">
               CVFORGE
             </Title>

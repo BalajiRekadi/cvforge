@@ -1,12 +1,12 @@
 .default-form-block {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 4px;
 }
 
 .display-horizontal {
   display: flex;
-  gap: 1rem;
+  gap: 4px;
 }
 
 .mantine-TextInput-root {

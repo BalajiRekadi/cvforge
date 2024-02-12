@@ -5,6 +5,7 @@ import { ChangeEvent } from "react";
 import { useDispatch } from "react-redux";
 import { updateBlockField } from "../../../store/reducers/resume";
 import { FormBlockEntry } from "../../../shared/types";
+import { RADIUS } from "../../../constants";
 
 interface FormBlockEntryProps {
   entryData: FormBlockEntry;
@@ -43,21 +44,25 @@ const FormBlockEntry = ({
         </ActionIcon>
       </div>
       <TextInput
+        radius={RADIUS}
         placeholder="Title"
         value={entryData.title}
         onChange={(event) => onChangeHandler(event, "title")}
       />
       <TextInput
+        radius={RADIUS}
         placeholder="Subtitle"
         value={entryData.subTitle}
         onChange={(event) => onChangeHandler(event, "subTitle")}
       />
       <TextInput
+        radius={RADIUS}
         placeholder="Another subtitle"
         value={entryData.subTitle2}
         onChange={(event) => onChangeHandler(event, "subTitle2")}
       />
       <Textarea
+        radius={RADIUS}
         rows={4}
         placeholder="Add summary"
         value={entryData.summary}

@@ -1,8 +1,9 @@
 import { Accordion, TextInput, Textarea } from "@mantine/core";
-import classes from "./default-form-block.module.css";
+import "./default-form-block.css";
 import { DefaultFormBlock } from "../../shared/types";
 import { useDispatch } from "react-redux";
 import { updateDefaultBlockField } from "../../store/reducers/resume";
+import { RADIUS } from "../../constants";
 
 interface DefaultFormBlockProps {
   formData: DefaultFormBlock | undefined;
@@ -21,42 +22,49 @@ const DefaultFormBlock = ({ formData }: DefaultFormBlockProps) => {
     <Accordion.Item key={"Identity"} value={"Identity"}>
       <Accordion.Control icon={""}>{formData?.title}</Accordion.Control>
       <Accordion.Panel>
-        <div className={classes["default-form-block"]}>
+        <div className="default-form-block">
           <TextInput
             placeholder="FullName"
+            radius={RADIUS}
             value={formData?.fullName}
             onChange={(event) => onChangeHandler(event, "fullName")}
           />
           <TextInput
+            radius={RADIUS}
             placeholder="Designation"
             value={formData?.designation}
             onChange={(event) => onChangeHandler(event, "designation")}
           />
-          <div className={classes["display-horizontal"]}>
+          <div className="display-horizontal">
             <TextInput
+              radius={RADIUS}
               placeholder="Phone"
               value={formData?.phone}
               onChange={(event) => onChangeHandler(event, "phone")}
             />
             <TextInput
+              radius={RADIUS}
               placeholder="Mail"
               value={formData?.mail}
               onChange={(event) => onChangeHandler(event, "mail")}
             />
           </div>
-          <div className={classes["display-horizontal"]}>
+          <div className="display-horizontal">
             <TextInput
+              radius={RADIUS}
               placeholder="Linkedin"
               value={formData?.linkedIn}
               onChange={(event) => onChangeHandler(event, "linkedIn")}
             />
             <TextInput
+              radius={RADIUS}
               placeholder="Github"
               value={formData?.github}
               onChange={(event) => onChangeHandler(event, "github")}
             />
           </div>
           <Textarea
+            radius={RADIUS}
             rows={5}
             placeholder="Give a brief description about your personality, your skills, your career etc"
             value={formData?.about}

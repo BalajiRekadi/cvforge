@@ -3,7 +3,6 @@
   flex-grow: 1.2;
   flex-basis: 0;
   overflow: auto;
-  background-color: #242424;
   z-index: 1;
   padding: 1rem;
 }
