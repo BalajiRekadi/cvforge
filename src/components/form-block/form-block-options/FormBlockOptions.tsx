@@ -1,6 +1,6 @@
 import { ActionIcon, rem } from "@mantine/core";
-import { IconArrowsVertical } from "@tabler/icons-react";
-import { IconArrowsHorizontal } from "@tabler/icons-react";
+// import { IconArrowsVertical } from "@tabler/icons-react";
+// import { IconArrowsHorizontal } from "@tabler/icons-react";
 import { IconPlaylistAdd } from "@tabler/icons-react";
 import { IconTrash } from "@tabler/icons-react";
 
@@ -11,13 +11,13 @@ const FormBlockOptions = () => {
 
   return (
     <ActionIcon.Group>
-      <ActionIcon variant="default" size="md" aria-label="Vertical">
+      {/* <ActionIcon variant="default" size="md" aria-label="Vertical">
         <IconArrowsVertical style={{ width: rem(15) }} stroke={1.5} />
       </ActionIcon>
 
       <ActionIcon variant="default" size="md" aria-label="Horizontal">
         <IconArrowsHorizontal style={{ width: rem(15) }} stroke={1.5} />
-      </ActionIcon>
+      </ActionIcon> */}
 
       <ActionIcon
         variant="default"

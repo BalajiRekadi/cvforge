@@ -1,10 +1,8 @@
-import { IconFlame, IconHeart } from "@tabler/icons-react";
+import { IconFlame } from "@tabler/icons-react";
 import classes from "./side-menu.module.css";
 import { ActionIcon, Tooltip } from "@mantine/core";
 
 const SideMenu = ({ onMenuChange, activePanel }) => {
-  // TODO: For active button change variant prop
-
   const onMenuChangeHandler = (event: any, button: string) => {
     event.preventDefault();
     onMenuChange(button);
@@ -21,7 +19,7 @@ const SideMenu = ({ onMenuChange, activePanel }) => {
           <IconFlame />
         </ActionIcon>
       </Tooltip>
-      <Tooltip label="Settings">
+      {/* <Tooltip label="Settings">
         <ActionIcon
           size="lg"
           onClick={(event) => onMenuChangeHandler(event, "SETTINGS")}
@@ -40,7 +38,7 @@ const SideMenu = ({ onMenuChange, activePanel }) => {
         >
           <IconHeart />
         </ActionIcon>
-      </Tooltip>
+      </Tooltip> */}
     </div>
   );
 };
