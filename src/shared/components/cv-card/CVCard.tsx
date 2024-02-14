@@ -1,21 +1,25 @@
-import { Card, Image, Group, Text } from "@mantine/core";
+import { Text, Image, Paper, Button } from "@mantine/core";
 import "./cv-card.css";
+import resume from "../../../assets/resume.jpg";
 
-const CVCard = () => {
+const CVCard = ({ name, isActive = false, isNew = false }) => {
   return (
-    <Card shadow="sm" padding="lg" radius="md" withBorder>
-      <Card.Section>
+    <Paper shadow="xs" withBorder className="cv-card" radius={"sm"}>
+      {!isNew && (
         <Image
-          src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png"
-          height={160}
-          alt="Norway"
+          className={isActive ? "bkgd-img active" : "bkgd-img"}
+          radius={"sm"}
+          src={resume}
+          alt="Resume"
         />
-      </Card.Section>
-
-      <Group justify="space-between" mt="md" mb="xs">
-        <Text fw={500}>ReactJS</Text>
-      </Group>
-    </Card>
+      )}
+      {isNew && (
+        <Button className="new-button new-text" variant="light">
+          + New
+        </Button>
+      )}
+      {!isNew && <Text className="text">{name}</Text>}
+    </Paper>
   );
 };
 

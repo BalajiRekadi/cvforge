@@ -1,0 +1,22 @@
+.right-panel {
+  display: flex;
+  flex-grow: 2;
+  flex-basis: 0;
+  z-index: 1;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-grow: 1;
+
+  .scrollarea {
+    flex-grow: 1;
+  }
+
+  .section-button {
+    height: 3rem;
+    margin: 1rem;
+  }
+}

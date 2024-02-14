@@ -6,6 +6,7 @@ import "./toolbar.css";
 import MyDocument from "../document/Document";
 import { useSelector } from "react-redux";
 import { getSelectedResume } from "../../../store/selectors/resume";
+import { RADIUS } from "../../../constants";
 
 const ToolBar = () => {
   const resume = useSelector(getSelectedResume);
@@ -13,11 +14,22 @@ const ToolBar = () => {
   return (
     <div className="toolbar">
       <ActionIcon.Group>
-        <ActionIcon variant="default" size="xl" aria-label="Horizontal">
+        <ActionIcon
+          variant="default"
+          size="xl"
+          aria-label="Horizontal"
+          radius={RADIUS}
+        >
           <IconZoomReset style={{ width: rem(23) }} stroke={1.5} />
         </ActionIcon>
-        <ActionIcon variant="default" size="xl" aria-label="Vertical">
+        <ActionIcon
+          variant="default"
+          size="xl"
+          aria-label="Vertical"
+          radius={RADIUS}
+        >
           <PDFDownloadLink
+            className="download-link"
             document={<MyDocument resume={resume} />}
             fileName="somename.pdf"
           >

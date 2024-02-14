@@ -1,10 +1,21 @@
 import { Flex } from "@mantine/core";
-import { ActionCard, CVCard } from "../../shared/components";
-import classes from "./left-panel.module.css";
+import { CVCard } from "../../shared/components";
+import { useSelector } from "react-redux";
+import {
+  getResumesIDAndNameMap,
+  getSelectedResume,
+} from "../../store/selectors/resume";
+import "./left-panel.css";
 
 const LeftPanel = () => {
+  const idAndNameMap = useSelector(getResumesIDAndNameMap);
+  const { id } = useSelector(getSelectedResume);
+
+  const resumeNames = Object.values(idAndNameMap);
+  const selectedResumeName = idAndNameMap[id];
+
   return (
-    <div className={classes["left-panel"]}>
+    <div className="left-panel">
       <Flex
         mih={50}
         gap="md"
@@ -13,8 +24,12 @@ const LeftPanel = () => {
         direction="row"
         wrap="wrap"
       >
-        <ActionCard />
-        <CVCard />
+        <CVCard isNew={true} name="+ NEW" />
+        {resumeNames.map((name) => (
+          <CVCard name={name} isActive={name === selectedResumeName} />
+        ))}
+        <CVCard name={"Dummy"} />
+        <CVCard name={"Dummy"} />
       </Flex>
     </div>
   );

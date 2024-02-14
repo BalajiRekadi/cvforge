@@ -12,6 +12,7 @@ interface DefaultFormBlock {
 
 interface Resume {
   id: string;
+  name: string;
   defaultFormBlock: DefaultFormBlock;
   formBlocks: FormBlocks;
 }

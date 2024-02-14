@@ -33,7 +33,7 @@ const defaultTemplate: Template = {
   detailsItem: {
     fontSize: "11px",
     lineHeight: "2",
-    color: "darkslategrey",
+    color: "black",
   },
   aboutTitle: {
     fontSize: "12px",
@@ -44,7 +44,7 @@ const defaultTemplate: Template = {
   about: {
     fontSize: "12px",
     lineHeight: "1.55",
-    color: "darkslategrey",
+    color: "black",
   },
   formBlocks: {
     marginTop: "10px",
@@ -76,12 +76,12 @@ const defaultTemplate: Template = {
     fontSize: "10px",
     lineHeight: "1.55",
     fontWeight: "600",
-    color: "darkslategrey",
+    color: "black",
   },
   summary: {
     fontSize: "12px",
     lineHeight: "1.55",
-    color: "darkslategrey",
+    color: "black",
   },
 };
 

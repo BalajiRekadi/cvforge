@@ -5,4 +5,10 @@
   .mantine-Paper-root {
     padding: 8px 2rem !important;
   }
+
+  .download-link {
+    svg {
+      stroke: white;
+    }
+  }
 }

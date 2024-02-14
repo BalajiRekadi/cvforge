@@ -15,6 +15,7 @@ const initialState: ResumeState = {
   list: [
     {
       id: "001",
+      name: "ReactJs",
       defaultFormBlock: {
         id: "defaultformblock001",
         title: "Identity",
