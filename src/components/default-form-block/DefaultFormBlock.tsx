@@ -20,7 +20,9 @@ const DefaultFormBlock = ({ formData }: DefaultFormBlockProps) => {
 
   return (
     <Accordion.Item key={"Identity"} value={"Identity"}>
-      <Accordion.Control icon={""}>{formData?.title}</Accordion.Control>
+      <Accordion.Control icon={""}>
+        <div className="form-block-title">{formData?.title}</div>
+      </Accordion.Control>
       <Accordion.Panel>
         <div className="default-form-block">
           <TextInput

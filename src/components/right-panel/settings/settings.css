@@ -1,4 +1,7 @@
 .settings {
+  padding: 1rem;
+  margin: 0 1rem;
+
   .slider {
     margin: 0 3rem;
   }

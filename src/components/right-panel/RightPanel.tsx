@@ -2,23 +2,26 @@ import { useState } from "react";
 import Forms from "./forms/Forms";
 import "./right-panel.css";
 import Settings from "./settings/Settings";
-import SideMenu from "./side-menu/SideMenu";
-import { Button, Modal, ScrollArea, TextInput, Title } from "@mantine/core";
+import { Button, ScrollArea, TextInput, Title } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { RADIUS } from "../../constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addNewSection } from "../../store/reducers/resume";
 import { v4 as uuidv4 } from "uuid";
+import {
+  getResumesIDAndNameMap,
+  getSelectedResume,
+} from "../../store/selectors/resume";
+import CVModal from "../../shared/components/modal/Modal";
 
 const RightPanel = () => {
-  const [activePanel, setActivePanel] = useState("FORMS");
-  const [opened, { open, close }] = useDisclosure(false);
   const dispatch = useDispatch();
   const [name, setName] = useState("");
+  const idAndNameMap = useSelector(getResumesIDAndNameMap);
+  const { id } = useSelector(getSelectedResume);
+  const [opened, { open, close }] = useDisclosure(false);
 
-  const onMenuChange = (button: string) => {
-    setActivePanel(button);
-  };
+  const selectedResumeName = idAndNameMap[id];
 
   const onAddClick = () => {
     dispatch(
@@ -47,19 +50,16 @@ const RightPanel = () => {
   return (
     <div className="right-panel">
       <div className="content">
+        <Title order={2}>{selectedResumeName}</Title>
+
         <ScrollArea
           offsetScrollbars
           scrollbarSize={4}
           scrollHideDelay={0}
           className={"scrollarea"}
         >
-          {/* TODO: Remove Settings when settings panel is implemented */}
           <Settings />
-
-          <Title order={3}>Forms</Title>
-
-          {activePanel === "FORMS" && <Forms />}
-          {activePanel === "SETTINGS" && <Settings />}
+          <Forms />
         </ScrollArea>
         <Button
           variant="light"
@@ -70,8 +70,12 @@ const RightPanel = () => {
           Add new section
         </Button>
       </div>
-      <SideMenu onMenuChange={onMenuChange} activePanel={activePanel} />
-      <Modal opened={opened} onClose={close} title="Enter section name">
+      <CVModal
+        opened={opened}
+        title={"Enter Section Name"}
+        close={close}
+        onAddClick={onAddClick}
+      >
         <TextInput
           radius={RADIUS}
           placeholder="Title"
@@ -79,16 +83,7 @@ const RightPanel = () => {
           onChange={onNameChange}
           data-autofocus
         />
-        <br />
-        <Button
-          variant="light"
-          color="yellow"
-          className={"section-button"}
-          onClick={onAddClick}
-        >
-          Add
-        </Button>
-      </Modal>
+      </CVModal>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { ActionIcon, rem } from "@mantine/core";
+import { ActionIcon, Tooltip, rem } from "@mantine/core";
 import { IconFileTypePdf } from "@tabler/icons-react";
 import { IconZoomReset } from "@tabler/icons-react";
 import { PDFDownloadLink } from "@react-pdf/renderer";
@@ -16,15 +16,17 @@ const ToolBar = () => {
       <ActionIcon.Group>
         <ActionIcon
           variant="default"
-          size="xl"
+          size="lg"
           aria-label="Horizontal"
           radius={RADIUS}
         >
-          <IconZoomReset style={{ width: rem(23) }} stroke={1.5} />
+          <Tooltip label="Reset zoom" openDelay={1000} color="dark.8">
+            <IconZoomReset style={{ width: rem(20) }} stroke={1.5} />
+          </Tooltip>
         </ActionIcon>
         <ActionIcon
           variant="default"
-          size="xl"
+          size="lg"
           aria-label="Vertical"
           radius={RADIUS}
         >
@@ -33,7 +35,9 @@ const ToolBar = () => {
             document={<MyDocument resume={resume} />}
             fileName="somename.pdf"
           >
-            <IconFileTypePdf style={{ width: rem(23) }} stroke={1.5} />
+            <Tooltip label="Download PDF" openDelay={1000} color="dark.8">
+              <IconFileTypePdf style={{ width: rem(20) }} stroke={1.5} />
+            </Tooltip>
           </PDFDownloadLink>
         </ActionIcon>
       </ActionIcon.Group>

@@ -1,4 +1,4 @@
-import { Accordion } from "@mantine/core";
+import { Accordion, Title } from "@mantine/core";
 import DefaultFormBlock from "../../default-form-block/DefaultFormBlock";
 import { useSelector } from "react-redux";
 import { getSelectedResume } from "../../../store/selectors/resume";
@@ -14,6 +14,7 @@ const Forms = () => {
 
   return (
     <div className={classes["forms"]}>
+      <Title order={3}>Details</Title>
       <Accordion variant="" defaultValue="Identity">
         <DefaultFormBlock formData={resume?.defaultFormBlock} />
         {blockIds.map((id) => (

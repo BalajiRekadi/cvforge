@@ -12,7 +12,7 @@ const FormBlock = ({ formData }: FormBlockProps) => {
   return (
     <Accordion.Item key={formData.id} value={formData.name}>
       <Accordion.Control icon={""}>
-        <div>{formData.name}</div>
+        <div className="form-block-title">{formData.name}</div>
         <FormBlockOptions />
       </Accordion.Control>
       <Accordion.Panel>

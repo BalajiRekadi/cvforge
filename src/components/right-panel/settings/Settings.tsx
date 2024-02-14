@@ -1,16 +1,17 @@
-import { ColorPicker, Slider, Title } from "@mantine/core";
-import { COLORSWATCHES } from "../../../constants";
+import { ColorPicker, Paper, Slider, Title } from "@mantine/core";
+import { COLORSWATCHES, RADIUS } from "../../../constants";
 import "./settings.css";
 
 const Settings = () => {
   return (
-    <div className="settings">
+    <Paper radius={RADIUS} withBorder={true} className="settings">
       <Title order={3}>Settings</Title>
 
       <Title order={5}>Font Size</Title>
       <Slider
         className="slider"
         size="sm"
+        step={0.5}
         defaultValue={12}
         min={10}
         max={16}
@@ -24,7 +25,7 @@ const Settings = () => {
         swatches={COLORSWATCHES}
         withPicker={false}
       />
-    </div>
+    </Paper>
   );
 };
 
