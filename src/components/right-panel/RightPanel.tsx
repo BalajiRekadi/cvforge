@@ -9,16 +9,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { addNewSection } from "../../store/reducers/resume";
 import { v4 as uuidv4 } from "uuid";
 import {
-  getResumesIDAndNameMap,
-  getSelectedResume,
+  selectResumesIDAndNameMap,
+  selectSelectedResume,
 } from "../../store/selectors/resume";
 import CVModal from "../../shared/components/modal/Modal";
 
 const RightPanel = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
-  const idAndNameMap = useSelector(getResumesIDAndNameMap);
-  const { id } = useSelector(getSelectedResume);
+  const idAndNameMap = useSelector(selectResumesIDAndNameMap);
+  const { id } = useSelector(selectSelectedResume);
   const [opened, { open, close }] = useDisclosure(false);
 
   const selectedResumeName = idAndNameMap[id];

@@ -1,17 +1,25 @@
 import { forwardRef } from "react";
 import "./preview.css";
 import { useSelector } from "react-redux";
-import { getSelectedResume } from "../../../store/selectors/resume";
+import {
+  selectFontSize,
+  selectResumeTheme,
+  selectSelectedResume,
+} from "../../../store/selectors/resume";
 import { DefaultFormBlock, FormBlocks } from "../../../shared/types";
-import templates from "../../../constants/templates";
+import getDefaultTemplate from "../../../constants/templates";
 
 const Preview = forwardRef((props: any, ref: any) => {
-  const resume = useSelector(getSelectedResume);
+  const resume = useSelector(selectSelectedResume);
+  // TODO: q1
+  const fontSize = useSelector(selectFontSize);
+  const themeColor = useSelector(selectResumeTheme);
+
   const defaultFormBlock: DefaultFormBlock = resume.defaultFormBlock;
   const formBlocks: FormBlocks = resume.formBlocks;
   const formBlocksKeys = Object.keys(formBlocks);
 
-  const selectedTemplate = templates.defaultTemplate;
+  const selectedTemplate = getDefaultTemplate(fontSize, themeColor);
 
   return (
     <div ref={ref} className="preview" style={selectedTemplate.page}>

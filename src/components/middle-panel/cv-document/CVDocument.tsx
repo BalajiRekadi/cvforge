@@ -1,13 +1,15 @@
 import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
-import templates from "../../../constants/templates";
 import { DefaultFormBlock, FormBlocks } from "../../../shared/types";
+import getDefaultTemplate from "../../../constants/templates";
 
-const MyDocument = ({ resume }) => {
+const CVDocument = ({ resume, fontSize, themeColor }) => {
   const defaultFormBlock: DefaultFormBlock = resume.defaultFormBlock;
   const formBlocks: FormBlocks = resume.formBlocks;
   const formBlocksKeys = Object.keys(formBlocks);
 
-  const selectedTemplate = StyleSheet.create({ ...templates.defaultTemplate });
+  const selectedTemplate = StyleSheet.create(
+    getDefaultTemplate(fontSize, themeColor) as any
+  );
 
   return (
     <Document>
@@ -61,4 +63,4 @@ const MyDocument = ({ resume }) => {
   );
 };
 
-export default MyDocument;
+export default CVDocument;

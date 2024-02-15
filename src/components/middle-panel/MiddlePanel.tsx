@@ -3,16 +3,16 @@ import "./middle-panel.css";
 import Preview from "./preview/Preview";
 import { onWheelHanlder } from "./handlers";
 import ToolBar from "./toolbar/ToolBar";
-// import MyDocument from "./document/Document";
+// import CVDocument from "./document/Document";
 // import { PDFViewer } from "@react-pdf/renderer";
 // import { useSelector } from "react-redux";
-// import { getSelectedResume } from "../../store/selectors/resume";
+// import { selectSelectedResume } from "../../store/selectors/resume";
 
 const MiddlePanel = () => {
   const ref: any = useRef();
   const panelRef: any = useRef();
 
-  // const resume = useSelector(getSelectedResume);
+  // const resume = useSelector(selectSelectedResume);
 
   useEffect(() => {
     const panelElement = panelRef.current;
@@ -33,7 +33,7 @@ const MiddlePanel = () => {
     <div className="middle-panel" ref={panelRef}>
       <Preview ref={ref} />
       {/* <PDFViewer>
-        <MyDocument resume={resume} />
+        <CVDocument resume={resume} />
       </PDFViewer> */}
       <ToolBar />
     </div>

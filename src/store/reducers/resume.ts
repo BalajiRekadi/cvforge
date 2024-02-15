@@ -4,11 +4,15 @@ import {
   _updateDefaultBlockField,
   _updateBlockField,
   _addNewSection,
+  _updateFontSize,
+  _updateResumeTheme,
 } from "../actions/resume";
 
 interface ResumeState {
   list: Resume[];
   selectedResumeId: string;
+  fontSize: string;
+  resumeTheme: string;
 }
 
 const initialState: ResumeState = {
@@ -75,6 +79,8 @@ const initialState: ResumeState = {
     },
   ],
   selectedResumeId: "001",
+  fontSize: "12",
+  resumeTheme: "#fa5252",
 };
 
 const resumeSlice = createSlice({
@@ -84,14 +90,21 @@ const resumeSlice = createSlice({
     updateDefaultBlockField: _updateDefaultBlockField,
     updateBlockField: _updateBlockField,
     addNewSection: _addNewSection,
+    updateFontSize: _updateFontSize,
+    updateResumeTheme: _updateResumeTheme,
   },
 });
 
 const resumeReducer: Reducer<ResumeState> = resumeSlice.reducer;
 
 // Action creators are generated for each case reducer function
-export const { updateDefaultBlockField, updateBlockField, addNewSection } =
-  resumeSlice.actions;
+export const {
+  updateDefaultBlockField,
+  updateBlockField,
+  addNewSection,
+  updateFontSize,
+  updateResumeTheme,
+} = resumeSlice.actions;
 
 export default resumeReducer;
 

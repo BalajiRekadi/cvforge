@@ -32,4 +32,18 @@ const _addNewSection = (state, action) => {
   }
 };
 
-export { _updateDefaultBlockField, _updateBlockField, _addNewSection };
+const _updateFontSize = (state, action) => {
+  state.fontSize = action.payload;
+};
+
+const _updateResumeTheme = (state, action) => {
+  state.resumeTheme = action.payload;
+};
+
+export {
+  _updateDefaultBlockField,
+  _updateBlockField,
+  _addNewSection,
+  _updateFontSize,
+  _updateResumeTheme,
+};

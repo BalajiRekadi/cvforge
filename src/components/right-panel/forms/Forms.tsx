@@ -1,13 +1,13 @@
 import { Accordion, Title } from "@mantine/core";
 import DefaultFormBlock from "../../default-form-block/DefaultFormBlock";
 import { useSelector } from "react-redux";
-import { getSelectedResume } from "../../../store/selectors/resume";
+import { selectSelectedResume } from "../../../store/selectors/resume";
 import FormBlock from "../../form-block/FormBlock";
 import classes from "./forms.module.css";
 
 const Forms = () => {
-  // TODO: getSelectedResume runs for every rerender
-  const resume = useSelector(getSelectedResume);
+  // TODO: selectSelectedResume runs for every rerender
+  const resume = useSelector(selectSelectedResume);
 
   const blocks = resume ? resume.formBlocks : {};
   const blockIds = Object.keys(blocks);

@@ -3,13 +3,19 @@ import { IconFileTypePdf } from "@tabler/icons-react";
 import { IconZoomReset } from "@tabler/icons-react";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import "./toolbar.css";
-import MyDocument from "../document/Document";
+import CVDocument from "../cv-document/CVDocument";
 import { useSelector } from "react-redux";
-import { getSelectedResume } from "../../../store/selectors/resume";
+import {
+  selectFontSize,
+  selectResumeTheme,
+  selectSelectedResume,
+} from "../../../store/selectors/resume";
 import { RADIUS } from "../../../constants";
 
 const ToolBar = () => {
-  const resume = useSelector(getSelectedResume);
+  const resume = useSelector(selectSelectedResume);
+  const fontSize = useSelector(selectFontSize);
+  const themeColor = useSelector(selectResumeTheme);
 
   return (
     <div className="toolbar">
@@ -32,7 +38,13 @@ const ToolBar = () => {
         >
           <PDFDownloadLink
             className="download-link"
-            document={<MyDocument resume={resume} />}
+            document={
+              <CVDocument
+                resume={resume}
+                fontSize={fontSize}
+                themeColor={themeColor}
+              />
+            }
             fileName="somename.pdf"
           >
             <Tooltip label="Download PDF" openDelay={1000} color="dark.8">

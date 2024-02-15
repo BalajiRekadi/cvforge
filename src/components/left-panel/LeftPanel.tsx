@@ -2,14 +2,14 @@ import { Flex } from "@mantine/core";
 import { CVCard } from "../../shared/components";
 import { useSelector } from "react-redux";
 import {
-  getResumesIDAndNameMap,
-  getSelectedResume,
+  selectResumesIDAndNameMap,
+  selectSelectedResume,
 } from "../../store/selectors/resume";
 import "./left-panel.css";
 
 const LeftPanel = () => {
-  const idAndNameMap = useSelector(getResumesIDAndNameMap);
-  const { id } = useSelector(getSelectedResume);
+  const idAndNameMap = useSelector(selectResumesIDAndNameMap);
+  const { id } = useSelector(selectSelectedResume);
 
   const resumeNames = Object.values(idAndNameMap);
   const selectedResumeName = idAndNameMap[id];
