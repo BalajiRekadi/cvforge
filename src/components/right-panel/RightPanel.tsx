@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Forms from "./forms/Forms";
-import "./right-panel.css";
+import classes from "./right-panel.module.css";
 import Settings from "./settings/Settings";
 import { Button, ScrollArea, TextInput, Title } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { RADIUS } from "../../constants";
+import { INPUT_SIZE, RADIUS } from "../../constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addNewSection } from "../../store/reducers/resume";
 import { v4 as uuidv4 } from "uuid";
@@ -48,15 +48,15 @@ const RightPanel = () => {
   };
 
   return (
-    <div className="right-panel">
-      <div className="content">
+    <div className={classes["right-panel"]}>
+      <div className={classes["content"]}>
         <Title order={2}>{selectedResumeName}</Title>
 
         <ScrollArea
           offsetScrollbars
           scrollbarSize={4}
           scrollHideDelay={0}
-          className={"scrollarea"}
+          className={classes["scrollarea"]}
         >
           <Settings />
           <Forms />
@@ -64,7 +64,7 @@ const RightPanel = () => {
         <Button
           variant="light"
           color="yellow"
-          className="section-button"
+          className={classes["section-button"]}
           onClick={open}
         >
           Add new section
@@ -77,10 +77,12 @@ const RightPanel = () => {
         onAddClick={onAddClick}
       >
         <TextInput
+          size={INPUT_SIZE}
           radius={RADIUS}
           placeholder="Title"
           value={name}
           onChange={onNameChange}
+          spellCheck={false}
           data-autofocus
         />
       </CVModal>

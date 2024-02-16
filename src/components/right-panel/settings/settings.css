@@ -2,10 +2,21 @@
   padding: 1rem;
   margin: 0 1rem;
 
+  .content {
+    display: flex;
+    gap: 3rem;
+
+    .fontsize {
+      width: 50%;
+    }
+
+    .resume-theme {
+      width: 50%;
+    }
+  }
+
   .slider {
-    margin: 0 3rem;
   }
   .color-picker {
-    margin: 0 3rem;
   }
 }

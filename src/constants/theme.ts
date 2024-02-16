@@ -26,25 +26,20 @@ const customTheme = {
 };
 
 const RADIUS = "md";
+const TEXTAREA_ROWS = 7;
+const INPUT_SIZE = "md";
 
 const COLORSWATCHES = [
-  "#2e2e2e",
-  "#868e96",
-  "#fa5252",
-  "#e64980",
-  "#be4bdb",
-  "#7950f2",
-  "#4c6ef5",
-  "#228be6",
-  "#15aabf",
-  "#12b886",
-  "#40c057",
-  "#82c91e",
-  "#fab005",
-  "#fd7e14",
+  "#C92A2A",
+  "#862E9C",
+  "#364FC7",
+  "#2B8A3E",
+  "#E67700",
+  "#D9480F",
+  "#000000",
 ];
 
-export { customTheme, RADIUS, COLORSWATCHES };
+export { customTheme, RADIUS, COLORSWATCHES, TEXTAREA_ROWS, INPUT_SIZE };
 
 // original sequence
 // "#C9C9C9",
