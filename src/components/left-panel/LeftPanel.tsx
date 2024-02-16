@@ -5,7 +5,7 @@ import {
   selectResumesIDAndNameMap,
   selectSelectedResume,
 } from "../../store/selectors/resume";
-import "./left-panel.css";
+import classes from "./left-panel.module.css";
 
 const LeftPanel = () => {
   const idAndNameMap = useSelector(selectResumesIDAndNameMap);
@@ -15,7 +15,7 @@ const LeftPanel = () => {
   const selectedResumeName = idAndNameMap[id];
 
   return (
-    <div className="left-panel">
+    <div className={classes["left-panel"]}>
       <Flex
         mih={50}
         gap="md"

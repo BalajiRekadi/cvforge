@@ -4,11 +4,13 @@
   gap: 1rem;
 }
 
-.form-block-entries {
-}
-
-.mantine-Accordion-label {
+.form-block-Accordion-label {
   display: flex;
   justify-content: space-between;
   margin-right: 1rem;
+}
+
+.form-block-title {
+  font-weight: 700;
+  font-size: 1.1rem;
 }

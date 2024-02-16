@@ -4,11 +4,16 @@
   gap: var(--gap);
 }
 
+.default-form-block-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
 .display-horizontal {
   display: flex;
   gap: var(--gap);
 }
 
-.mantine-TextInput-root {
+.display-horizontal div {
   flex-grow: 1;
 }

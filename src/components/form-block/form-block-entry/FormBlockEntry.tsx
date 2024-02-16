@@ -1,6 +1,6 @@
 import { ActionIcon, TextInput, Textarea, rem } from "@mantine/core";
 import { IconX } from "@tabler/icons-react";
-import "./form-block-entry.css";
+import classes from "./form-block-entry.module.css";
 import { ChangeEvent } from "react";
 import { useDispatch } from "react-redux";
 import { updateBlockField } from "../../../store/reducers/resume";
@@ -31,14 +31,14 @@ const FormBlockEntry = ({
     );
   };
   return (
-    <div className="form-block-entries">
-      <div className="entry-header">
-        <div className="entry-title">Entry {index + 1}</div>
+    <div className={classes["form-block-entries"]}>
+      <div className={classes["entry-header"]}>
+        <div className={classes["entry-title"]}>Entry {index + 1}</div>
         <ActionIcon
           variant="default"
           size="md"
           aria-label="Gallery"
-          className="form-block-entries__delete"
+          className={classes["form-block-entries__delete"]}
         >
           <IconX style={{ width: rem(15) }} stroke={1.5} />
         </ActionIcon>

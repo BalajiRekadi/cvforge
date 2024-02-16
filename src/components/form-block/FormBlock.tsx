@@ -1,4 +1,4 @@
-import "./form-block.css";
+import classes from "./form-block.module.css";
 import { FormBlock } from "../../shared/types";
 import FormBlockEntry from "./form-block-entry/FormBlockEntry";
 import FormBlockOptions from "./form-block-options/FormBlockOptions";
@@ -11,13 +11,15 @@ interface FormBlockProps {
 const FormBlock = ({ formData }: FormBlockProps) => {
   return (
     <Accordion.Item key={formData.id} value={formData.name}>
-      <Accordion.Control icon={""}>
-        <div className="form-block-title">{formData.name}</div>
-        <FormBlockOptions />
+      <Accordion.Control>
+        <div className={classes["form-block-Accordion-label"]}>
+          <div className={classes["form-block-title"]}>{formData.name}</div>
+          <FormBlockOptions />
+        </div>
       </Accordion.Control>
       <Accordion.Panel>
-        <div className="form-block">
-          <div className="form-block-entries">
+        <div className={classes["form-block"]}>
+          <div className={classes["form-block-entries"]}>
             {formData.entries.map((entry, index) => (
               <FormBlockEntry
                 entryData={entry}

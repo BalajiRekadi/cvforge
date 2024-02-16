@@ -1,0 +1,22 @@
+.form-block-entries {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.form-block-entries__delete {
+  align-self: end;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.entry-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--mantine-color-dark-3);
+}

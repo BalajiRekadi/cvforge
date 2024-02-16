@@ -80,7 +80,7 @@ const initialState: ResumeState = {
   ],
   selectedResumeId: "001",
   fontSize: 11,
-  resumeTheme: "#fa5252",
+  resumeTheme: "#C92A2A",
 };
 
 const resumeSlice = createSlice({

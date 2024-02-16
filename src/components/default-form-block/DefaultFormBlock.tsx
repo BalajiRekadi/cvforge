@@ -1,5 +1,5 @@
 import { Accordion, TextInput, Textarea } from "@mantine/core";
-import "./default-form-block.css";
+import classes from "./default-form-block.module.css";
 import { DefaultFormBlock } from "../../shared/types";
 import { useDispatch } from "react-redux";
 import { updateDefaultBlockField } from "../../store/reducers/resume";
@@ -21,10 +21,12 @@ const DefaultFormBlock = ({ formData }: DefaultFormBlockProps) => {
   return (
     <Accordion.Item key={"Identity"} value={"Identity"}>
       <Accordion.Control icon={""}>
-        <div className="form-block-title">{formData?.title}</div>
+        <div className={classes["default-form-block-title"]}>
+          {formData?.title}
+        </div>
       </Accordion.Control>
       <Accordion.Panel>
-        <div className="default-form-block">
+        <div className={classes["default-form-block"]}>
           <TextInput
             size={INPUT_SIZE}
             placeholder="FullName"
@@ -41,7 +43,7 @@ const DefaultFormBlock = ({ formData }: DefaultFormBlockProps) => {
             onChange={(event) => onChangeHandler(event, "designation")}
             spellCheck={false}
           />
-          <div className="display-horizontal">
+          <div className={classes["display-horizontal"]}>
             <TextInput
               size={INPUT_SIZE}
               radius={RADIUS}
@@ -59,7 +61,7 @@ const DefaultFormBlock = ({ formData }: DefaultFormBlockProps) => {
               spellCheck={false}
             />
           </div>
-          <div className="display-horizontal">
+          <div className={classes["display-horizontal"]}>
             <TextInput
               size={INPUT_SIZE}
               radius={RADIUS}

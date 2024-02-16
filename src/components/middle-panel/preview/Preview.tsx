@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import "./preview.css";
+import classes from "./preview.module.css";
 import { useSelector } from "react-redux";
 import {
   selectFontSize,
@@ -22,7 +22,7 @@ const Preview = forwardRef((props: any, ref: any) => {
   const selectedTemplate = getDefaultTemplate(fontSize, themeColor);
 
   return (
-    <div ref={ref} className="preview" style={selectedTemplate.page}>
+    <div ref={ref} className={classes["preview"]} style={selectedTemplate.page}>
       <div style={selectedTemplate.nameblock}>
         <div style={selectedTemplate.fullName}>
           {defaultFormBlock?.fullName}

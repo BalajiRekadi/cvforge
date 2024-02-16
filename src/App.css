@@ -38,14 +38,3 @@
   line-height: 64px !important;
   height: 64px;
 }
-
-.form-block-title {
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-
-.entry-title {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--mantine-color-dark-3);
-}
