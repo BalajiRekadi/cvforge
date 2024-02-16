@@ -34,11 +34,11 @@ const Settings = () => {
       <Slider
         className="slider"
         size="sm"
-        step={0.5}
-        defaultValue={12}
+        step={0.25}
+        defaultValue={10}
         value={fontSize}
-        min={10}
-        max={16}
+        min={9}
+        max={12}
         onChange={onFontSizeChange}
         labelAlwaysOn={true}
       />

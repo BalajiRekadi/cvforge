@@ -1,15 +1,18 @@
 import Template from "../shared/types/template";
 
-function getDefaultTemplate(fontSize: string, themeColor: string): Template {
+function getDefaultTemplate(fontSize: number, themeColor: string): Template {
+  const primarySize = fontSize + 1;
+  const secondarySize = fontSize - 1;
+  const tertiarySize = fontSize;
+
   return {
     page: {
       padding: "16px",
       fontFamily: "Open Sans",
     },
-    nameblock: {
-      fontSize: fontSize,
-    },
+    nameblock: {},
     fullName: {
+      fontSize: primarySize + 1,
       lineHeight: "1.55",
       color: "black",
       fontFamily: "Open Sans",
@@ -17,7 +20,7 @@ function getDefaultTemplate(fontSize: string, themeColor: string): Template {
     },
     designation: {
       color: "black",
-      fontSize: fontSize,
+      fontSize: tertiarySize,
       lineHeight: "1.55",
       fontFamily: "Open Sans",
       fontWeight: "600",
@@ -32,26 +35,26 @@ function getDefaultTemplate(fontSize: string, themeColor: string): Template {
       display: "flex",
     },
     detailsItem: {
-      fontSize: fontSize,
+      fontSize: secondarySize,
       lineHeight: "2",
       color: "black",
     },
     aboutTitle: {
-      fontSize: fontSize,
+      fontSize: primarySize,
       color: themeColor,
       lineHeight: "1.55",
       fontWeight: "600",
     },
     about: {
-      fontSize: fontSize,
+      fontSize: tertiarySize,
       lineHeight: "1.55",
       color: "black",
     },
     formBlocks: {
-      marginTop: "10px",
+      marginTop: 16,
     },
     formBlockTitle: {
-      fontSize: fontSize,
+      fontSize: primarySize,
       color: themeColor,
       lineHeight: "1.55",
       fontFamily: "Open Sans",
@@ -61,26 +64,26 @@ function getDefaultTemplate(fontSize: string, themeColor: string): Template {
       marginTop: "8px",
     },
     entryTitle: {
-      fontSize: fontSize,
+      fontSize: tertiarySize,
       lineHeight: "1.55",
       fontFamily: "Open Sans",
       fontWeight: "600",
       color: "black",
     },
     entrySubTitle: {
-      fontSize: fontSize,
+      fontSize: tertiarySize,
       lineHeight: "1.55",
       fontWeight: "600",
       color: "black",
     },
     entrySubTitle2: {
-      fontSize: fontSize,
+      fontSize: secondarySize,
       lineHeight: "1.55",
       fontWeight: "600",
       color: "black",
     },
     summary: {
-      fontSize: fontSize,
+      fontSize: tertiarySize,
       lineHeight: "1.55",
       color: "black",
     },

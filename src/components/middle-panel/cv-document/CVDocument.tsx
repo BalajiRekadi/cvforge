@@ -8,7 +8,7 @@ const CVDocument = ({ resume, fontSize, themeColor }) => {
   const formBlocksKeys = Object.keys(formBlocks);
 
   const selectedTemplate = StyleSheet.create(
-    getDefaultTemplate(fontSize, themeColor) as any
+    getDefaultTemplate(fontSize + 1, themeColor) as any
   );
 
   return (

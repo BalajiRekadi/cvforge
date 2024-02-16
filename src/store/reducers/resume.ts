@@ -11,7 +11,7 @@ import {
 interface ResumeState {
   list: Resume[];
   selectedResumeId: string;
-  fontSize: string;
+  fontSize: number;
   resumeTheme: string;
 }
 
@@ -79,7 +79,7 @@ const initialState: ResumeState = {
     },
   ],
   selectedResumeId: "001",
-  fontSize: "12",
+  fontSize: 11,
   resumeTheme: "#fa5252",
 };
 
