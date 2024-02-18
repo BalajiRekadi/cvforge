@@ -14,7 +14,7 @@ const FormBlock = ({ formData }: FormBlockProps) => {
       <Accordion.Control>
         <div className={classes["form-block-Accordion-label"]}>
           <div className={classes["form-block-title"]}>{formData.name}</div>
-          <FormBlockOptions />
+          <FormBlockOptions id={formData.id} blockName={formData.name} />
         </div>
       </Accordion.Control>
       <Accordion.Panel>

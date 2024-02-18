@@ -4,6 +4,12 @@ import { DefaultFormBlock } from "../../shared/types";
 import { useDispatch } from "react-redux";
 import { updateDefaultBlockField } from "../../store/reducers/resume";
 import { INPUT_SIZE, RADIUS, TEXTAREA_ROWS } from "../../constants";
+import {
+  IconAt,
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconPhone,
+} from "@tabler/icons-react";
 
 interface DefaultFormBlockProps {
   formData: DefaultFormBlock | undefined;
@@ -50,6 +56,7 @@ const DefaultFormBlock = ({ formData }: DefaultFormBlockProps) => {
               placeholder="Phone"
               value={formData?.phone}
               onChange={(event) => onChangeHandler(event, "phone")}
+              leftSection={<IconPhone size={16} />}
               spellCheck={false}
             />
             <TextInput
@@ -58,6 +65,7 @@ const DefaultFormBlock = ({ formData }: DefaultFormBlockProps) => {
               placeholder="Mail"
               value={formData?.mail}
               onChange={(event) => onChangeHandler(event, "mail")}
+              leftSection={<IconAt size={16} />}
               spellCheck={false}
             />
           </div>
@@ -68,6 +76,7 @@ const DefaultFormBlock = ({ formData }: DefaultFormBlockProps) => {
               placeholder="Linkedin"
               value={formData?.linkedIn}
               onChange={(event) => onChangeHandler(event, "linkedIn")}
+              leftSection={<IconBrandLinkedin size={16} />}
               spellCheck={false}
             />
             <TextInput
@@ -76,6 +85,7 @@ const DefaultFormBlock = ({ formData }: DefaultFormBlockProps) => {
               placeholder="Github"
               value={formData?.github}
               onChange={(event) => onChangeHandler(event, "github")}
+              leftSection={<IconBrandGithub size={16} />}
               spellCheck={false}
             />
           </div>

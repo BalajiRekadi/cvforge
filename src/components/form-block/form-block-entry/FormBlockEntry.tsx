@@ -3,7 +3,7 @@ import { IconX } from "@tabler/icons-react";
 import classes from "./form-block-entry.module.css";
 import { ChangeEvent } from "react";
 import { useDispatch } from "react-redux";
-import { updateBlockField } from "../../../store/reducers/resume";
+import { deleteEntry, updateBlockField } from "../../../store/reducers/resume";
 import { FormBlockEntry } from "../../../shared/types";
 import { INPUT_SIZE, RADIUS, TEXTAREA_ROWS } from "../../../constants";
 
@@ -30,6 +30,11 @@ const FormBlockEntry = ({
       } as any)
     );
   };
+
+  const onDeleteEntryHandler = () => {
+    dispatch(deleteEntry({ sectionId, entryId: entryData.id } as any));
+  };
+
   return (
     <div className={classes["form-block-entries"]}>
       <div className={classes["entry-header"]}>
@@ -39,6 +44,7 @@ const FormBlockEntry = ({
           size="md"
           aria-label="Gallery"
           className={classes["form-block-entries__delete"]}
+          onClick={onDeleteEntryHandler}
         >
           <IconX style={{ width: rem(15) }} stroke={1.5} />
         </ActionIcon>

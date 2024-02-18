@@ -6,6 +6,10 @@ import {
   _addNewSection,
   _updateFontSize,
   _updateResumeTheme,
+  _addEntry,
+  _deleteFormBlock,
+  _deleteEntry,
+  _updateFormBlockName,
 } from "../actions/resume";
 
 interface ResumeState {
@@ -90,8 +94,12 @@ const resumeSlice = createSlice({
     updateDefaultBlockField: _updateDefaultBlockField,
     updateBlockField: _updateBlockField,
     addNewSection: _addNewSection,
+    updateFormBlockName: _updateFormBlockName,
+    deleteFormBlock: _deleteFormBlock,
     updateFontSize: _updateFontSize,
     updateResumeTheme: _updateResumeTheme,
+    addEntry: _addEntry,
+    deleteEntry: _deleteEntry,
   },
 });
 
@@ -102,8 +110,12 @@ export const {
   updateDefaultBlockField,
   updateBlockField,
   addNewSection,
+  updateFormBlockName,
+  deleteFormBlock,
   updateFontSize,
   updateResumeTheme,
+  addEntry,
+  deleteEntry,
 } = resumeSlice.actions;
 
 export default resumeReducer;

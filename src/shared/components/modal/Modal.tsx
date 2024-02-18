@@ -1,7 +1,14 @@
 import { Button, Modal } from "@mantine/core";
 import classes from "./modal.module.css";
 
-const CVModal = ({ opened, close, title, onAddClick, children }) => {
+const CVModal = ({
+  opened,
+  close,
+  title,
+  onAddClick,
+  buttonText,
+  children,
+}) => {
   return (
     <Modal
       className={classes["modal"]}
@@ -24,7 +31,7 @@ const CVModal = ({ opened, close, title, onAddClick, children }) => {
           onClick={onAddClick}
           fullWidth={false}
         >
-          Add
+          {buttonText}
         </Button>
       </div>
     </Modal>
