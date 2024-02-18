@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import "./middle-panel.css";
+import classes from "./middle-panel.module.css";
 import Preview from "./preview/Preview";
 import { onWheelHanlder } from "./handlers";
 import ToolBar from "./toolbar/ToolBar";
@@ -30,7 +30,7 @@ const MiddlePanel = () => {
   }, []);
 
   return (
-    <div className="middle-panel" ref={panelRef}>
+    <div className={classes["middle-panel"]} ref={panelRef}>
       <Preview ref={ref} />
       {/* <PDFViewer>
         <CVDocument resume={resume} />

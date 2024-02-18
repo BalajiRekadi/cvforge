@@ -5,9 +5,3 @@
   flex-grow: 2.5;
   flex-basis: 0;
 }
-
-iframe {
-  height: 100%; /*775.5px;*/
-  width: 100%; /*550px; */
-  border: none;
-}

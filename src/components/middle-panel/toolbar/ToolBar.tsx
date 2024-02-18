@@ -2,7 +2,7 @@ import { ActionIcon, Tooltip, rem } from "@mantine/core";
 import { IconFileTypePdf } from "@tabler/icons-react";
 import { IconZoomReset } from "@tabler/icons-react";
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import "./toolbar.css";
+import classes from "./toolbar.module.css";
 import CVDocument from "../cv-document/CVDocument";
 import { useSelector } from "react-redux";
 import {
@@ -18,7 +18,7 @@ const ToolBar = () => {
   const themeColor = useSelector(selectResumeTheme);
 
   return (
-    <div className="toolbar">
+    <div className={classes["toolbar"]}>
       <ActionIcon.Group>
         <ActionIcon
           variant="default"
@@ -37,7 +37,7 @@ const ToolBar = () => {
           radius={RADIUS}
         >
           <PDFDownloadLink
-            className="download-link"
+            className={classes["download-link"]}
             document={
               <CVDocument
                 resume={resume}

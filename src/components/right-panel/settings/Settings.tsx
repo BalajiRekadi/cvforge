@@ -1,6 +1,6 @@
 import { ColorPicker, Paper, Slider, Title } from "@mantine/core";
 import { COLORSWATCHES, RADIUS } from "../../../constants";
-import "./settings.css";
+import classes from "./settings.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectFontSize,
@@ -27,14 +27,13 @@ const Settings = () => {
   };
 
   return (
-    <Paper radius={RADIUS} withBorder={true} className="settings">
+    <Paper radius={RADIUS} withBorder={true} className={classes["settings"]}>
       <Title order={3}>Settings</Title>
 
-      <div className="content">
-        <div className="fontsize">
+      <div className={classes["content"]}>
+        <div className={classes["fontsize"]}>
           <Title order={5}>Font Size</Title>
           <Slider
-            className="slider"
             size="sm"
             step={0.25}
             defaultValue={10}
@@ -46,10 +45,9 @@ const Settings = () => {
           />
         </div>
 
-        <div className="resume-theme">
+        <div className={classes["resume-theme"]}>
           <Title order={5}>Theme</Title>
           <ColorPicker
-            className="color-picker"
             value={themeColor}
             format="hex"
             swatches={COLORSWATCHES}
